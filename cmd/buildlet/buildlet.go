@@ -680,7 +680,12 @@ func handleWrite(w http.ResponseWriter, r *http.Request) {
 
 	param, _ := url.ParseQuery(r.URL.RawQuery)
 
+	fmt.Println(param)
 	path := param.Get("path")
+	fmt.Println("#################")
+
+	fmt.Println(path)
+
 	if path == "" || !validRelPath(path) {
 		http.Error(w, "bad path", http.StatusBadRequest)
 		return
